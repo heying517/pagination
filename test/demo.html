@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>分页插件</title>
+    <link rel="stylesheet" href="pagination.min.css">
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .prompt-explain {
+            border-bottom: 2px dotted #aaa;
+            line-height: 2;
+            margin: 0 20px;
+            padding: 10px 0;
+            font-family: Arial, '微软雅黑';
+            font-size: 12px;
+            color: #5c5d5e;
+        }
+
+        .prompt-explain dl {
+            margin: 0;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        .demo {
+            margin: 10px 20px;
+            padding: 10px 0;
+        }
+
+        .demo1-show {
+            position: absolute;
+            top: 405px;
+            left: 600px;
+            font-size: 12px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+<div class="prompt-explain">
+    <dl>
+        <dt>分页插件说明:</dt>
+        <dd>
+            <p>作用：该插件用于实现网页上的分页功能</p>
+            <p>依赖:依赖boncUI.page.css</p>
+            <div>
+                <p>
+                    内置参数： BoncUI.page(dom,{
+                    pages: 100,
+                    groups: 5,
+                    skin: '#009688',
+                    jump: false,
+                    first: '首页',
+                    last: '末页',
+                    firstAndLast: false,
+                    prev: '上一页',
+                    next: '下一页',
+                    switch:function(){}
+                    });
+                </p>
+                <p>1.dom:整个组件要绑定的dom对象（必须）</p>
+                <p>2.pages:一共需要多少页（必须）</p>
+                <p>3.groups:每次出现的页面数（可选，默认为5）</p>
+                <p>4.skin:当前页面按钮颜色（可选，默认为'#009688'）</p>
+                <p>5.jump:是否出现页面跳转选项（可选，true或者false）</p>
+                <p>6.first:第一页按钮显示内容（可选）</p>
+                <p>7.last:最后一页按钮显示内容（可选）</p>
+                <p>8.firstAndLast:是否在分页按钮上出现首页末页（可选）</p>
+                <p>9.prev:上一页按钮的显示内容（可选）</p>
+                <p>10.next:下一页按钮的显示内容（可选）</p>
+                <p>11.switch:页面切换成功后自定义的函数（可选）</p>
+            </div>
+        </dd>
+    </dl>
+</div>
+<div id="demo1" class="demo"></div>
+<div class="demo1-show"></div>
+<div id="demo2" class="demo"></div>
+<div id="demo3" class="demo"></div>
+<div id="demo4" class="demo"></div>
+<div id="demo5" class="demo"></div>
+<div id="demo6" class="demo"></div>
+<script src="jquery-1.11.3.min.js"></script>
+<script src="pagination.min.js"></script>
+<script>
+
+    $('#demo1').pagination({
+        pages: 100,
+        groups: 5,
+        switchPage: function (obj) {
+            $('.demo1-show').html('demo1：第' + obj.pageNow + '页');
+        }
+    });
+
+    $('#demo2').pagination({
+        pages: 100,
+        groups: 4,
+        skin: '#1E9FFF'
+    });
+
+    $('#demo3').pagination({
+        pages: 100,
+        groups: 5,
+        first: '1',
+        last: '100',
+        prev: "&lt;",
+        next: '&gt;'
+    });
+
+    $('#demo4').pagination({
+        pages: 100,
+        groups: 5,
+        firstAndLast: false
+    });
+
+    $('#demo5').pagination({
+        pages: 100,
+        groups: 5,
+        jump: true
+    });
+
+    $('#demo6').pagination({
+        pages: 5,
+        groups: 5
+    });
+
+</script>
+</body>
+</html>
